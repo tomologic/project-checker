@@ -1,0 +1,14 @@
+[MASTER]
+load-plugins=pylint.extensions.docstyle,pylint.extensions.docparams
+
+[BASIC]
+good-names=project-checker
+
+[FORMAT]
+max-line-length=79
+
+[MESSAGES CONTROL]
+# Note: C0199 is disabled because it does not accurately reflect PEP-257
+#       For multi-line docstrings the first line may be empty
+disable=C0199,no-self-use
+
