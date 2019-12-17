@@ -1,4 +1,4 @@
-# Project checker
+# Project Checker
 
 ## Purpose
 
