@@ -69,6 +69,7 @@ class ProjectChecker(unittest.TestCase):
                        % full_file_path)
 
             process = subprocess.run(command,
+                                     check=False,
                                      shell=True,
                                      stdout=subprocess.PIPE,
                                      encoding='utf-8')
@@ -89,6 +90,7 @@ class ProjectChecker(unittest.TestCase):
                        r"--line-number $'\t' %s"
                        % full_file_path)
             process = subprocess.run(command,
+                                     check=False,
                                      shell=True,
                                      stdout=subprocess.PIPE,
                                      encoding='utf-8')
@@ -108,6 +110,7 @@ class ProjectChecker(unittest.TestCase):
                              fi; """ % (full_file_path, full_file_path)
 
             process = subprocess.run(command,
+                                     check=False,
                                      shell=True,
                                      stdout=subprocess.PIPE,
                                      encoding='utf-8')
@@ -125,6 +128,7 @@ class ProjectChecker(unittest.TestCase):
                 command = 'bash -n %s' % full_file_path
 
                 process = subprocess.run(command,
+                                         check=False,
                                          shell=True,
                                          stdout=subprocess.PIPE,
                                          encoding='utf-8')
@@ -140,6 +144,7 @@ class ProjectChecker(unittest.TestCase):
         requirements_path = join(ProjectChecker.project_dir,
                                  'requirements.txt')
         if basename(requirements_path) in ProjectChecker.files_to_check:
+            # pylint: disable=import-outside-toplevel
             from safety.util import read_requirements
             from safety.safety import check
 
